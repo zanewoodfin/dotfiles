@@ -2,21 +2,42 @@
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-rails'
 Plug 'jpo/vim-railscasts-theme'
+Plug 'scrooloose/nerdtree'
 call plug#end()" Standard settings
 
-" Basic config
-set number
+
+
+" Colors
+set t_Co=256
+color railscasts
+
+" Current line
+set cursorline
+set scrolloff=999
+
+" Indentation
 set autoindent
 set smartindent
 set expandtab
 set tabstop=2
 set shiftwidth=2
-set list
+
+" Line numbering
+set number
+set relativenumber
+
+" Line width
 set colorcolumn=81
+set nowrap
+
+" Whitespace
+set list
+
+" Windows
 set splitright
 set splitbelow
-set t_Co=256
-color railscasts
+
+
 
 " Remap vk to escape for insert and command mode
 inoremap vk <Esc>
@@ -35,3 +56,6 @@ noremap <c-w>j :wincmd h<CR>
 
 " Command mode without shift
 noremap ; :
+
+" Open nerdtree with ctrl+n
+noremap <C-n> :NERDTreeToggle<CR>
