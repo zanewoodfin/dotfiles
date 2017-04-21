@@ -58,6 +58,10 @@ set wildmenu
 set incsearch
 set hlsearch
 
+" Status line
+set laststatus=2
+
+
 
 " Remap vk to escape for insert and command mode
 inoremap vk <Esc>
