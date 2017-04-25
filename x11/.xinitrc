@@ -15,7 +15,7 @@ if [ -x /usr/bin/xbindkeys ] ; then
 fi
 
 # swap caps and esc
-[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+# [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
 # configure xterm
 xrdb -merge ~/.Xresources
