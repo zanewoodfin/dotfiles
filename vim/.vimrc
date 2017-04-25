@@ -2,7 +2,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-rails'
 Plug 'jpo/vim-railscasts-theme'
-Plug 'scrooloose/nerdtree'
 Plug 'http://github.com/sjl/gundo.vim.git'
 call plug#end()" Standard settings
 
@@ -15,6 +14,7 @@ noremap <Leader>p "+p
 " Colors
 set t_Co=256
 color railscasts
+highlight Normal ctermbg=none
 
 " Cursor
 set cursorline
@@ -79,9 +79,6 @@ noremap l <right>
 noremap <c-w><Space> :wincmd l<CR>
 noremap <c-w>l :wincmd l<CR>
 noremap <c-w>j :wincmd h<CR>
-
-" Open nerdtree with ctrl+n
-noremap <C-n> :NERDTreeToggle<CR>
 
 " Open gundo with leader u
 noremap <leader>u :GundoToggle<CR>

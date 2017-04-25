@@ -1,6 +1,11 @@
 # set cursor
 xsetroot -cursor_name left_ptr
 
+# disable screensaver
+xset -dpms
+xset s noblank
+xset s off
+
 # set keyboard layout
 setxkbmap -variant colemak &
 

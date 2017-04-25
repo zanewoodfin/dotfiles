@@ -14,7 +14,7 @@ import qualified Data.Map        as M
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "xterm"
+myTerminal      = "termite"
  
 -- Width of the window border in pixels.
 --
