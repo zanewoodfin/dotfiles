@@ -18,6 +18,7 @@ highlight Normal ctermbg=none
 
 " Cursor
 set cursorline
+set cursorcolumn
 set showmatch
 
 " History
