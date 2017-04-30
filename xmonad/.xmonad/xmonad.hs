@@ -182,6 +182,7 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , resource  =? "volume-applet"  --> doFloat
+    , resource  =? "nm-applet"      --> doFloat
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore
     , isFullscreen                  --> (doF W.focusDown <+> doFullFloat)

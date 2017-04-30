@@ -5,8 +5,6 @@ Plug 'jpo/vim-railscasts-theme'
 Plug 'http://github.com/sjl/gundo.vim.git'
 call plug#end()" Standard settings
 
-
-
 " Clipboard
 noremap <Leader>y "+y
 noremap <Leader>p "+p
@@ -15,6 +13,9 @@ noremap <Leader>p "+p
 set t_Co=256
 color railscasts
 highlight Normal ctermbg=none
+
+" Command mode
+set wildmenu
 
 " Cursor
 set cursorline
@@ -45,22 +46,25 @@ set scrolloff=15
 set sidescroll=1
 set sidescrolloff=30
 
-" Whitespace
-set list
-
-" Windows
-set splitright
-set splitbelow
-
-" Command mode
-set wildmenu
-
 " Search
 set incsearch
 set hlsearch
 
 " Status line
 set laststatus=2
+
+" Undo history
+set undofile
+set undodir=~/.vim/undo/
+set undolevels=1000
+set undoreload=10000
+
+" Whitespace
+set list
+
+" Windows
+set splitright
+set splitbelow
 
 
 

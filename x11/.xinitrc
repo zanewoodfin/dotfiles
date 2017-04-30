@@ -1,10 +1,20 @@
 # set cursor
 xsetroot -cursor_name left_ptr
 
+# configure touchpad
+xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
+xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 0.75
+xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
+
 # disable screensaver
 xset -dpms
 xset s noblank
 xset s off
+
+# start screensaver for ability to lock the screen
+if [ -x /usr/bin/xscreensaver ] ; then
+  xscreensaver &
+fi
 
 # set keyboard layout
 setxkbmap -variant colemak &
