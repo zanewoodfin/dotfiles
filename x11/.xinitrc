@@ -13,7 +13,7 @@ xset s off
 
 # start screensaver for ability to lock the screen
 if [ -x /usr/bin/xscreensaver ] ; then
-  xscreensaver &
+  xscreensaver -nosplash &
 fi
 
 # set keyboard layout
