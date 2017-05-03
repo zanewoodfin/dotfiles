@@ -16,6 +16,11 @@ if [ -x /usr/bin/xscreensaver ] ; then
   xscreensaver -nosplash &
 fi
 
+# lock with xscreensaver on suspend
+if [ -x /usr/bin/xss-lock ] ; then
+  xss-lock -- xscreensaver-command -lock &
+fi
+
 # set keyboard layout
 setxkbmap -variant colemak &
 
