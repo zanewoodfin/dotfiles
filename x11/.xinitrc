@@ -53,5 +53,10 @@ if [ -x /usr/bin/nm-applet ] ; then
   nm-applet --sm-disable &
 fi
 
+# set background
+if [[ -x /usr/bin/xloadimage && -f ~/.config/background.jpg ]]; then
+  xloadimage -onroot ~/.config/background.jpg &
+fi
+
 # start window manager
 exec xmonad
