@@ -24,19 +24,19 @@ fi
 # set keyboard layout
 setxkbmap -variant colemak &
 
+# auto repeat caps backspace key
+xset r 66
+
 # configure auxiliary keyboard buttons
 if [ -x /usr/bin/xbindkeys ] ; then
   xbindkeys &
 fi
 
-# swap caps and esc
-# [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
-
 # configure xterm
 xrdb -merge ~/.Xresources
 
 # create tray
-trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --tint 000  --height 12 &
+trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --tint 000  --height 18 --monitor primary &
 
 # add sound icon to tray
 if [ -x /usr/bin/volumeicon ] ; then
