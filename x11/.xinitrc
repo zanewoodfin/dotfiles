@@ -22,7 +22,7 @@ if [ -x /usr/bin/xss-lock ] ; then
 fi
 
 # set keyboard layout
-setxkbmap -variant colemak &
+setxkbmap -variant colemak
 
 # auto repeat caps backspace key
 xset r 66

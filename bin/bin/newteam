@@ -1,0 +1,21 @@
+#!/bin/bash
+
+BASEPATH="$HOME/.teamocil"
+FILE="$BASEPATH/$1.yml"
+TEMPLATE="$BASEPATH/template.yml"
+
+if [ ! -f "$TEMPLATE" ]
+then
+  echo "No template found at $TEMPLATE"
+elif [ "$FILE" == "$TEMPLATE" ]
+then
+  echo "Unusable name \"$1\""
+elif [ -f "$FILE" ]
+then
+  echo "File $FILE already exists."
+else
+  cp $TEMPLATE $FILE
+  chmod 777 $FILE
+  sed -i -e 's|@name|'$1'|g' $FILE
+  sed -i -e 's|@root|'$2'|g' $FILE
+fi

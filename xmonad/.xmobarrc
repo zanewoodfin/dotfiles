@@ -24,8 +24,20 @@ Config { font = "-misc-fixed-*-*-*-*-14-*-*-*-*-*-*-*"
                                           "--normal","green","--high","red"] 10
                     , Run Network "eth1" ["-L","0","-H","32",
                                           "--normal","green","--high","red"] 10
-                    , Run Cpu ["-L","3","-H","50",
-                               "--normal","green","--high","red"] 10
+                    , Run MultiCpu [ "--template" , "Cpu: <total0> <total1> <total2> <total3>"
+                                   , "--Low"      , "40"         -- units: %
+                                   , "--High"     , "80"         -- units: %
+                                   , "--low"      , "darkgreen"
+                                   , "--normal"   , "darkorange"
+                                   , "--high"     , "darkred"
+                                   ] 10
+                    , Run CoreTemp [ "--template" , "Temp: <core0>"
+                                   , "--Low"      , "60"
+                                   , "--High"     , "80"
+                                   , "--low"      , "darkgreen"
+                                   , "--normal"   , "darkorange"
+                                   , "--high"     , "darkred"
+                                   ] 50
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Swap [] 10
                     , Run Com "uname" ["-s","-r"] "" 36000
@@ -33,5 +45,5 @@ Config { font = "-misc-fixed-*-*-*-*-14-*-*-*-*-*-*-*"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%cpu% | %memory% }{ <fc=#ee9a00>%date%</fc>"
+       , template = "%multicpu% | %coretemp% | %memory% }{ <fc=#ee9a00>%date%</fc>"
        }

@@ -1,0 +1,25 @@
+name: @name
+windows:
+  - name: vim
+    root: @root
+    panes:
+      - commands:
+        - cd @root
+        - vim ./
+    focus: true
+  - name: terminal
+    root: @root
+    panes:
+      - pwd
+  - name: console
+    root: @root
+    panes:
+      - rails console
+  - name: testing
+    root: @root
+    panes:
+      - rspec
+  - name: server
+    root: @root
+    panes:
+      - rails s
