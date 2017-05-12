@@ -1,6 +1,31 @@
-## About
+# My Configuration
 This is an attempt to reify and organize my computing environment.
-Files are organized by application or category to be "installed" with GNU Stow.
+Configuration files are organized by application or category to be symlinked with stow.
+
+## Usage
+Create all directories and symlink all configuration files into them
+
+```
+./install.sh
+```
+
+Remove all symlinks (does not remove directories created with install script)
+
+```
+./uninstall.sh
+```
+
+Symlink configuration for individual applications or categories
+
+```
+stow <directory>
+```
+
+Remove all symlinks for a particular application or category
+
+```
+stow -D <directory>
+```
 
 ## Packages
 alsa-utils
