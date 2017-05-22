@@ -2,6 +2,7 @@ import XMonad
 import System.Exit
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Hooks.ManageHelpers
@@ -185,7 +186,7 @@ myManageHook = composeAll
     , resource  =? "nm-applet"      --> doFloat
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore
-    , isFullscreen                  --> (doF W.focusDown <+> doFullFloat)
+    --, isFullscreen                  --> (doF W.focusDown <+> doFullFloat)
     ]
     <+> manageDocks <+> manageHook defaultConfig
 
@@ -200,7 +201,7 @@ myFocusFollowsMouse = True
 --main = xmonad def
 main = do
   xmproc <- spawnPipe "/usr/bin/xmobar /home/zane/.xmobarrc"
-  xmonad $ defaultConfig
+  xmonad $ ewmh defaultConfig
     {
       borderWidth = myBorderWidth,
       focusedBorderColor = myFocusedBorderColor,
