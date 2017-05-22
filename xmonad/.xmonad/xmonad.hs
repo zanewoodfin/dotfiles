@@ -200,7 +200,7 @@ myFocusFollowsMouse = True
 --main = xmonad gnomeConfig
 --main = xmonad def
 main = do
-  xmproc <- spawnPipe "/usr/bin/xmobar /home/zane/.xmobarrc"
+  xmproc <- spawnPipe "$HOME/bin/restart_xmobar.sh"
   xmonad $ ewmh defaultConfig
     {
       borderWidth = myBorderWidth,
