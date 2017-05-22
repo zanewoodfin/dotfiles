@@ -5,7 +5,7 @@ Config { font = "-misc-fixed-*-*-*-*-14-*-*-*-*-*-*-*"
        , bgColor = "black"
        , fgColor = "grey"
        , alpha = 255
-       , position = TopW L 90
+       , position = TopW L 95
        , textOffset = -1
        , iconOffset = -1
        , lowerOnStart = True
@@ -39,11 +39,22 @@ Config { font = "-misc-fixed-*-*-*-*-14-*-*-*-*-*-*-*"
                                    , "--high"     , "darkred"
                                    ] 50
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Battery [ "--template" , "Batt: <acstatus>"
+                                  , "--Low"      , "20"          -- units: %
+                                  , "--High"     , "60"          -- units: %
+                                  , "--low"      , "darkred"
+                                  , "--normal"   , "darkorange"
+                                  , "--high"     , "darkgreen"
+                                  , "--"
+                                  , "-o"         , "<left>% (<timeleft>)"
+                                  , "-O"         , "<fc=#dAA520>Charging</fc>"
+                                  , "-i"         , "<fc=#006000>Charged</fc>"
+                                  ] 50
                     , Run Swap [] 10
                     , Run Com "uname" ["-s","-r"] "" 36000
                     , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%multicpu% | %coretemp% | %memory% }{ <fc=#ee9a00>%date%</fc>"
+       , template = "%coretemp% | %multicpu% | %memory% }               <fc=#ee9a00>%date%</fc> { %battery%"
        }

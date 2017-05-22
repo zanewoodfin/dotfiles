@@ -28,8 +28,8 @@ stow -D <directory>
 ```
 
 ## Packages
+acpi
 alsa-utils
-cbatticon
 dmenu
 fontconfig
 gvfs
