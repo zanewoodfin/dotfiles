@@ -44,12 +44,16 @@ gvim
 htop
 hunspell
 hunspell-en
+lib32-alsa-plugins
+lib32-libpulse
 network-manager
 network-manager-applet
 nodejs
 openssh
 pcmanfm
 phantomjs
+pulseaudio
+pulseaudio-alsa
 ruby
 stow
 termite
@@ -57,6 +61,9 @@ thunderbird
 tmux
 trash-cli
 volumeicon
+wmctrl
+wmname
+xarchiver
 xmobar
 xmonad
 xterm

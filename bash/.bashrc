@@ -19,3 +19,6 @@ setxkbmap -variant colemak
 
 # auto repeat caps backspace key
 xset r 66
+
+# Prevents grey screen in Android Studio
+wmname LG3D
