@@ -8,7 +8,6 @@
 # load ruby gems into path
 PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
-alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -22,3 +21,8 @@ xset r 66
 
 # Prevents grey screen in Android Studio
 wmname LG3D
+
+# Load aliases
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi

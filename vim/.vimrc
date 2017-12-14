@@ -2,7 +2,10 @@
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-rails'
 Plug 'jpo/vim-railscasts-theme'
-Plug 'http://github.com/sjl/gundo.vim.git'
+Plug 'sjl/gundo.vim'
+Plug 'thoughtbot/vim-rspec'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Valloric/YouCompleteMe'
 call plug#end()" Standard settings
 
 " Clipboard
@@ -16,6 +19,12 @@ highlight Normal ctermbg=none
 
 " Command mode
 set wildmenu
+
+" Comments
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" CtrlP
+let g:ctrlp_map = '<Leader>t'
 
 " Cursor
 set cursorline
@@ -35,13 +44,15 @@ set shiftwidth=2
 
 " Line numbering
 set number
-set relativenumber
 
 " Line width
 set colorcolumn=81
 set nowrap
 
-"Scrolling
+" Navigation
+set whichwrap=
+
+" Scrolling
 set scrolloff=15
 set sidescroll=1
 set sidescrolloff=30
@@ -87,3 +98,10 @@ noremap <c-w>j :wincmd h<CR>
 
 " Open gundo with leader u
 noremap <leader>u :GundoToggle<CR>
+
+" vim-rspec
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
