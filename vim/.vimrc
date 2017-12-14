@@ -6,6 +6,7 @@ Plug 'sjl/gundo.vim'
 Plug 'thoughtbot/vim-rspec'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Valloric/YouCompleteMe'
+Plug 'vim-syntastic/syntastic'
 call plug#end()" Standard settings
 
 " Clipboard
@@ -105,3 +106,8 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+" Syntastic
+let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_auto_loc_list = 1
