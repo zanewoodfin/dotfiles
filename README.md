@@ -51,6 +51,7 @@ lib32-libpulse
 network-manager
 network-manager-applet
 nodejs
+ntp
 openssh
 pcmanfm
 phantomjs
@@ -86,3 +87,7 @@ rbenv
 ruby-build
 trayer-srg
 xss-lock
+
+## Post Package Install
+sudo systemctl enable ntpd.service
+sudo systemctl start ntpd.service
