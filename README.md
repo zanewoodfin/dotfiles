@@ -57,6 +57,9 @@ pcmanfm
 phantomjs
 pulseaudio
 pulseaudio-alsa
+python-gobject
+python-xdg
+redshift
 ruby
 stow
 termite

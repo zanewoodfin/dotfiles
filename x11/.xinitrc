@@ -53,5 +53,10 @@ if [[ -x /usr/bin/xloadimage && -f ~/.config/background.jpg ]]; then
   xloadimage -onroot ~/.config/background.jpg &
 fi
 
+# add color temperature icon to tray
+if [ -x /usr/bin/redshift-gtk ] ; then
+  redshift-gtk &
+fi
+
 # start window manager
 exec xmonad
