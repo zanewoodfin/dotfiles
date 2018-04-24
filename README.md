@@ -83,6 +83,7 @@ xscreensaver
 yarn
 
 ## Aur Packages
+mirage
 rbenv
 ruby-build
 trayer-srg
