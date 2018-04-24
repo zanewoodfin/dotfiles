@@ -37,7 +37,9 @@ evince
 firefox
 fontconfig
 geckodriver
+gksu
 gnome-keyring
+gparted
 gvfs
 gvfs-mtp
 gvim
