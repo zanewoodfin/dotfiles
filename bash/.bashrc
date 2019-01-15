@@ -15,9 +15,17 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
-HISTFILESIZE=200000
+# No limit to history size
+HISTSIZE=
+HISTFILESIZE=
+# Record datetime of commands and display it in "history" with this format
+HISTTIMEFORMAT="[%F %T] "
+# Use alternate history file location to prevent any apps from truncating file
+HISTFILE=~/.bash_eternal_history
+# Append history to history file after every command
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+export EDITOR="vim"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
