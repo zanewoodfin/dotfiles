@@ -1,2 +1,8 @@
+.rbenv-vars
+*.gem
 *.swo
 *.swp
+*.crt
+*.jks
+*.key
+*.p12

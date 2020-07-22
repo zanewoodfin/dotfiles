@@ -1,11 +1,11 @@
 " Include plugins
 call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-rails'
 Plug 'jpo/vim-railscasts-theme'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'sjl/gundo.vim'
 Plug 'thoughtbot/vim-rspec'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Valloric/YouCompleteMe'
+Plug 'tpope/vim-rails'
 Plug 'vim-syntastic/syntastic'
 call plug#end()" Standard settings
 
@@ -24,13 +24,24 @@ set wildmenu
 " Comments
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" CtrlP
-let g:ctrlp_map = '<Leader>t'
-
 " Cursor
 set cursorline
 set cursorcolumn
 set showmatch
+
+" FZF (fuzzy search)
+" Filename Search
+nnoremap <silent> <leader>f :FZF<cr>
+nnoremap <silent> <leader>F :FZF ~<cr>
+" Content Search
+nnoremap <silent> <leader>t :Rg<cr>
+" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 " History
 set history=1000
@@ -78,8 +89,6 @@ set list
 set splitright
 set splitbelow
 
-
-
 " Remap vk to escape for insert and command mode
 inoremap vk <Esc>
 cnoremap vk <c-c>
@@ -100,14 +109,7 @@ noremap <c-w>j :wincmd h<CR>
 " Open gundo with leader u
 noremap <leader>u :GundoToggle<CR>
 
-" vim-rspec
-" RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-
 " Syntastic
 let g:syntastic_check_on_wq = 0
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_auto_loc_list = 1

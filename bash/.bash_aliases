@@ -2,6 +2,7 @@
 alias ll='ls -lah'
 alias la='ls -A'
 alias l='ls -CF'
+# cs() { cd "$@" && ls; }
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -14,3 +15,8 @@ alias rails='bundle exec rails'
 
 # Kill sidekiq workers
 alias xsidekiq="ps -ef | grep sidekiq | grep -v grep | awk '{print \$2}' | xargs kill -9"
+
+# Use vimx if possible to enable clipboard copy paste (needed on fedora)
+if command -v vimx > /dev/null; then
+  alias vim='vimx'
+fi

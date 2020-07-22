@@ -8,6 +8,20 @@
 # load ruby gems into path
 PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
+# LS AFTER DIR CHANGE
+PREV_DIR=$PWD
+LsAfterCd() {
+  [[ "$PREV_DIR" == "$PWD" ]] && return 0
+  fileCount=$(ls -1 | wc -l)
+  if [ $fileCount -le 30 ]; then
+    ls --color=always
+  else
+    echo "$fileCount visible files"
+  fi
+  PREV_DIR=$PWD
+}
+PROMPT_COMMAND="LsAfterCd; $PROMPT_COMMAND"
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -84,6 +98,9 @@ fi
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# Add cargo to path
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # set keyboard layout
 setxkbmap -variant colemak
 
@@ -93,7 +110,12 @@ xset r 66
 # Prevents grey screen in Android Studio
 wmname LG3D
 
+# Courtesy
+alias please="sudo"
+
 # Load aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
