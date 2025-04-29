@@ -13,7 +13,14 @@ Plug 'junegunn/fzf.vim'
 Plug 'sjl/gundo.vim'
 Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-rails'
-Plug 'vim-syntastic/syntastic'
+"Plug 'vim-syntastic/syntastic'
+Plug 'dense-analysis/ale'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'prettier/vim-prettier', {
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()" Standard settings
 
 " Clipboard
@@ -116,7 +123,19 @@ noremap <c-w>j :wincmd h<CR>
 " Open gundo with leader u
 noremap <leader>u :GundoToggle<CR>
 
+" Linting (Ale)
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+
+" Prettier
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+
 " Syntastic
-let g:syntastic_check_on_wq = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_auto_loc_list = 1
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_eslint_exe = 'eslint --cache'
